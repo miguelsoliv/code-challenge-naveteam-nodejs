@@ -3,12 +3,9 @@ import PostgresUsersRepository from '../../repositories/users/PostgresUsersRepos
 import CreateUserController from './CreateUserController';
 import CreateUserService from './CreateUserService';
 
-const bCryptHashProvider = new BCryptHashProvider();
-
-const postgresUsersRepository = new PostgresUsersRepository();
 const createUserService = new CreateUserService(
-  postgresUsersRepository,
-  bCryptHashProvider
+  new PostgresUsersRepository(),
+  new BCryptHashProvider()
 );
 
 const createUserController = new CreateUserController(createUserService);

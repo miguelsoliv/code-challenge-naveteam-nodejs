@@ -6,6 +6,9 @@ import Base from './Base';
 @Entity('users')
 class User extends Base {
   @Column()
+  name: string;
+
+  @Column()
   email: string;
 
   @Column()

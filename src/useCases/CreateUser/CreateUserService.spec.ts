@@ -7,28 +7,33 @@ import FakeUsersRepository from '../../repositories/users/FakeUsersRepository';
 import CreateUserService from './CreateUserService';
 
 describe('ENDPOINT /users', () => {
-  const fakeUsersRepository = new FakeUsersRepository();
-  const bCryptHashProvider = new BCryptHashProvider();
-
   const createUserService = new CreateUserService(
-    fakeUsersRepository,
-    bCryptHashProvider
+    new FakeUsersRepository(),
+    new BCryptHashProvider()
   );
 
-  const user = new User();
-  user.email = faker.internet.email();
-  user.password = faker.random.alphaNumeric(8);
+  const userData = new User();
+  userData.name = faker.name.firstName();
+  userData.email = faker.internet.email();
+  userData.password = faker.random.alphaNumeric(8);
+
+  const anotherUserData = new User();
+  anotherUserData.name = faker.name.firstName();
+  anotherUserData.email = userData.email;
+  anotherUserData.password = faker.random.alphaNumeric(8);
 
   describe('Should be able to create a user', () => {
     it('[201] POST /users -', async () => {
       const createdUser = await createUserService.execute({
-        email: user.email,
-        password: user.password,
+        name: userData.name,
+        email: userData.email,
+        password: userData.password,
       });
 
       expect(createdUser).toMatchObject({
         id: expect.any(String),
-        email: user.email,
+        name: userData.name,
+        email: userData.email,
       });
     });
   });
@@ -37,8 +42,9 @@ describe('ENDPOINT /users', () => {
     it('[409] POST /users -', async () => {
       await expect(
         createUserService.execute({
-          email: user.email,
-          password: user.password,
+          name: anotherUserData.name,
+          email: anotherUserData.email,
+          password: anotherUserData.password,
         })
       ).rejects.toBeInstanceOf(AppError);
     });

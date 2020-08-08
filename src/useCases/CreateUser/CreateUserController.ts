@@ -13,9 +13,10 @@ class CreateUserController {
   constructor(private createUserService: CreateUserService) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const { email, password } = request.body;
+    const { name, email, password } = request.body;
 
     const user = await this.createUserService.execute({
+      name,
       email,
       password,
     });

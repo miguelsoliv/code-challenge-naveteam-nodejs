@@ -12,7 +12,7 @@ class CreateUserService {
     private hashProvider: IHashProvider
   ) {}
 
-  async execute({ email, password }: ICreateUserDTO): Promise<User> {
+  async execute({ name, email, password }: ICreateUserDTO): Promise<User> {
     const checkEmailInUse = await this.usersRepository.findByEmail(email);
 
     if (checkEmailInUse) {
@@ -22,6 +22,7 @@ class CreateUserService {
     const hashedPassword = await this.hashProvider.generateHash(password);
 
     const user = await this.usersRepository.create({
+      name,
       email,
       password: hashedPassword,
     });
