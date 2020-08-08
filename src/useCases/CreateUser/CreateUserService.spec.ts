@@ -30,8 +30,8 @@ describe('ENDPOINT /users', () => {
         password: userData.password,
       });
 
-      expect(createdUser).toMatchObject({
-        id: expect.any(String),
+      expect(createdUser).toEqual({
+        id: createdUser.id,
         name: userData.name,
         email: userData.email,
       });
@@ -46,7 +46,10 @@ describe('ENDPOINT /users', () => {
           email: anotherUserData.email,
           password: anotherUserData.password,
         })
-      ).rejects.toBeInstanceOf(AppError);
+      ).rejects.toEqual<AppError>({
+        message: 'Email already in use',
+        statusCode: 409,
+      });
     });
   });
 });
