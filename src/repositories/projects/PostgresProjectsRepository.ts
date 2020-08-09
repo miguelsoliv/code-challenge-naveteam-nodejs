@@ -1,4 +1,4 @@
-import { getRepository, Like } from 'typeorm';
+import { getRepository } from 'typeorm';
 
 import Project from '../../models/Project';
 import ICreateProjectDTO from '../../useCases/CreateProject/ICreateProjectDTO';
@@ -29,17 +29,18 @@ class PostgresProjectsRepository implements IProjectsRepository {
     user_id,
     query,
   }: IListProjectsDTO): Promise<Project[]> {
-    const whereObject = {
-      user_id,
-    };
+    let whereClause = 'user_id = :user_id';
+    const whereVariables = { user_id };
 
     if (query.name) {
-      Object.assign(whereObject, { name: Like(`%${query.name}%`) });
+      whereClause += ' AND LOWER(name) LIKE LOWER(:name)';
+      Object.assign(whereVariables, { name: `%${query.name}%` });
     }
 
-    return getRepository(Project).find({
-      where: whereObject,
-    });
+    return getRepository(Project)
+      .createQueryBuilder()
+      .where(whereClause, whereVariables)
+      .getMany();
   }
 }
 

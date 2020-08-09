@@ -1,4 +1,4 @@
-import { getRepository, Like } from 'typeorm';
+import { getRepository } from 'typeorm';
 
 import Naver from '../../models/Naver';
 import ICreateNaverDTO from '../../useCases/CreateNaver/ICreateNaverDTO';
@@ -26,27 +26,28 @@ class PostgresNaversRepository implements INaversRepository {
     user_id,
     query,
   }: IListNaversDTO): Promise<Naver[]> {
-    const whereObject = {
-      user_id,
-    };
+    let whereClause = 'user_id = :user_id';
+    const whereVariables = { user_id };
 
     if (query.name) {
-      Object.assign(whereObject, { name: Like(`%${query.name}%`) });
+      whereClause += ' AND LOWER(name) LIKE LOWER(:name)';
+      Object.assign(whereVariables, { name: `%${query.name}%` });
     }
 
     if (query.admission_date) {
-      Object.assign(whereObject, {
-        admission_date: query.admission_date,
-      });
+      whereClause += ' AND admission_date = :admission_date';
+      Object.assign(whereVariables, { admission_date: query.admission_date });
     }
 
     if (query.job_role) {
-      Object.assign(whereObject, { job_role: Like(`%${query.job_role}%`) });
+      whereClause += ' AND LOWER(job_role) LIKE LOWER(:job_role)';
+      Object.assign(whereVariables, { job_role: `%${query.job_role}%` });
     }
 
-    return getRepository(Naver).find({
-      where: whereObject,
-    });
+    return getRepository(Naver)
+      .createQueryBuilder()
+      .where(whereClause, whereVariables)
+      .getMany();
   }
 }
 

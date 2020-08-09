@@ -122,6 +122,7 @@ OBS: ```AS ROTAS A BAIXO NÃO PODEM SER ACESSADAS CASO O USUÁRIO NÃO POSSUA O 
               }
           ]
       ```
+
   - (Show) Rota para detalhar um projeto
 
     - Além das informações do projeto, trazer quais foram os navers que participaram
