@@ -1,3 +1,4 @@
+import PostgresNaversRepository from '../../repositories/navers/PostgresNaversRepository';
 import PostgresNaversProjectsRepository from '../../repositories/naversProjects/PostgresNaversProjectsRepository';
 import PostgresProjectsRepository from '../../repositories/projects/PostgresProjectsRepository';
 import PostgresUsersRepository from '../../repositories/users/PostgresUsersRepository';
@@ -7,6 +8,7 @@ import CreateProjectService from './CreateProjectService';
 const createProjectService = new CreateProjectService(
   new PostgresProjectsRepository(),
   new PostgresUsersRepository(),
+  new PostgresNaversRepository(),
   new PostgresNaversProjectsRepository()
 );
 

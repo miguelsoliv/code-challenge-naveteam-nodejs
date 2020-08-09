@@ -14,6 +14,7 @@ let createdUser: User;
 let naverData: Naver;
 
 // TODO: check if NaversProjects are being saved
+// TODO: fix
 beforeAll(async () => {
   const usersRepository = new FakeUsersRepository();
 
