@@ -12,6 +12,10 @@ class PostgresNaversRepository implements INaversRepository {
 
     return naversRepository.save(naver);
   }
+
+  public async findById(id: number): Promise<Naver | undefined> {
+    return getRepository(Naver).findOne(id);
+  }
 }
 
 export default PostgresNaversRepository;

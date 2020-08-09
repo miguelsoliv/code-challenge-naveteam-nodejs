@@ -6,8 +6,8 @@ import {
 } from 'typeorm';
 
 class Base {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn('increment')
+  id: number;
 
   @CreateDateColumn()
   @Exclude()

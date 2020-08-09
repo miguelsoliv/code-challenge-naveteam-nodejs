@@ -26,7 +26,7 @@ function ensureUserAuthenticated(
     const { sub: subject } = validToken as ITokenPayload;
 
     request.user = {
-      id: subject,
+      id: Number(subject),
     };
 
     return next();

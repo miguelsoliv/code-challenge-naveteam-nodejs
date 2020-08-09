@@ -1,11 +1,11 @@
 import { Exclude } from 'class-transformer';
-import { Entity, Column, JoinColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 
 import Base from './Base';
 import User from './User';
 
-@Entity('navers')
-class Naver extends Base {
+@Entity('projects')
+class Project extends Base {
   @Column('int4')
   @Exclude()
   user_id: number;
@@ -16,15 +16,6 @@ class Naver extends Base {
 
   @Column()
   name: string;
-
-  @Column('date')
-  birthdate: Date;
-
-  @Column('date')
-  admission_date: Date;
-
-  @Column()
-  job_role: string;
 }
 
-export default Naver;
+export default Project;

@@ -13,6 +13,7 @@ let createNaverService: CreateNaverService;
 let createdUser: User;
 let naverData: Naver;
 
+// TODO: check if NaversProjects are being saved
 beforeAll(async () => {
   const usersRepository = new FakeUsersRepository();
 
@@ -71,7 +72,7 @@ describe('ENDPOINT /navers', () => {
           admission_date: naverData.admission_date,
           birthdate: naverData.birthdate,
           job_role: naverData.job_role,
-          user_id: 'invalid-user-id',
+          user_id: 0,
           projects: [],
         })
       ).rejects.toEqual<AppError>({

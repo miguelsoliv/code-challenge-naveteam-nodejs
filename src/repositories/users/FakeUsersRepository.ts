@@ -1,5 +1,3 @@
-import { v4 } from 'uuid';
-
 import User from '../../models/User';
 import ICreateUserDTO from '../../useCases/CreateUser/ICreateUserDTO';
 import IUsersRepository from './IUsersRepository';
@@ -7,16 +5,19 @@ import IUsersRepository from './IUsersRepository';
 class FakeUsersRepository implements IUsersRepository {
   private users: User[] = [];
 
+  private counter = 1;
+
   public async create(data: ICreateUserDTO): Promise<User> {
     const user = new User();
-    Object.assign(user, { id: v4() }, data);
+    Object.assign(user, { id: this.counter }, data);
 
     this.users.push(user);
+    this.counter += 1;
 
     return user;
   }
 
-  public async findById(id: string): Promise<User | undefined> {
+  public async findById(id: number): Promise<User | undefined> {
     return this.users.find(user => user.id === id);
   }
 

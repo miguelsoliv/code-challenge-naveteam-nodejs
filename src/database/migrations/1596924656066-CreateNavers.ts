@@ -8,14 +8,12 @@ export default class CreateNavers1596924656066 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'uuid',
+            type: 'serial',
             isPrimary: true,
-            generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()',
           },
           {
             name: 'user_id',
-            type: 'uuid',
+            type: 'serial',
             isNullable: true,
           },
           {

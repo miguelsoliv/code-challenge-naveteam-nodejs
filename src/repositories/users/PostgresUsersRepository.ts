@@ -13,7 +13,7 @@ class PostgresUsersRepository implements IUsersRepository {
     return usersRepository.save(user);
   }
 
-  public async findById(id: string): Promise<User | undefined> {
+  public async findById(id: number): Promise<User | undefined> {
     return getRepository(User).findOne(id);
   }
 

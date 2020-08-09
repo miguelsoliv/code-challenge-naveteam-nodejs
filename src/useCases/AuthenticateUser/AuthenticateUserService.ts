@@ -37,7 +37,7 @@ class AuthenticateUserService {
     return {
       user: classToClass(user),
       token: sign({}, process.env.JWT_SECRET || 'my-secret', {
-        subject: user.id,
+        subject: String(user.id),
         expiresIn: process.env.JWT_EXPIRES_IN || '12h',
       }),
     };
