@@ -7,11 +7,11 @@ interface ITokenPayload {
   sub: string;
 }
 
-function ensureUserAuthenticated(
+const ensureUserAuthenticated = (
   request: Request,
-  response: Response,
+  _: Response,
   next: NextFunction
-): void {
+): void => {
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
@@ -33,6 +33,6 @@ function ensureUserAuthenticated(
   } catch (err) {
     throw new AppError('Invalid JWT', 401);
   }
-}
+};
 
 export default ensureUserAuthenticated;

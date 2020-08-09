@@ -4,6 +4,7 @@ import CreateNaverController from '../useCases/CreateNaver';
 import DeleteNaverController from '../useCases/DeleteNaver';
 import ListNaversController from '../useCases/ListNavers';
 import ShowNaverController from '../useCases/ShowNaver';
+import UpdateNaverController from '../useCases/UpdateNaver';
 
 const naversRoutes = Router();
 
@@ -17,6 +18,10 @@ naversRoutes.post('/', async (request, response) => {
 
 naversRoutes.get('/:id', async (request, response) => {
   await ShowNaverController.handle(request, response);
+});
+
+naversRoutes.put('/:id', async (request, response) => {
+  await UpdateNaverController.handle(request, response);
 });
 
 naversRoutes.delete('/:id', async (request, response) => {

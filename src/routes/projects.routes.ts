@@ -4,6 +4,7 @@ import CreateProjectController from '../useCases/CreateProject';
 import DeleteProjectController from '../useCases/DeleteProject';
 import ListProjectsController from '../useCases/ListProjects';
 import ShowProjectController from '../useCases/ShowProject';
+import UpdateProjectController from '../useCases/UpdateProject';
 
 const projectsRoutes = Router();
 
@@ -17,6 +18,10 @@ projectsRoutes.post('/', async (request, response) => {
 
 projectsRoutes.get('/:id', async (request, response) => {
   await ShowProjectController.handle(request, response);
+});
+
+projectsRoutes.put('/:id', async (request, response) => {
+  await UpdateProjectController.handle(request, response);
 });
 
 projectsRoutes.delete('/:id', async (request, response) => {

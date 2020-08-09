@@ -4,6 +4,7 @@ import IListProjectsDTO from '../../useCases/ListProjects/IListProjectsDTO';
 
 export default interface IProjectsRepository {
   create(data: ICreateProjectDTO): Promise<Project>;
+  update(project: Project): Promise<Project>;
   delete(id: number): Promise<void>;
   findById(id: number): Promise<Project | undefined>;
   findAllByUser(data: IListProjectsDTO): Promise<Project[]>;

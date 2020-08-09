@@ -46,6 +46,18 @@ class PostgresNaversProjectsRepository implements INaversProjectsRepository {
     await naversProjectsRepository.save(naverProject);
   }
 
+  public async deleteAllByNaver(naver_id: number): Promise<void> {
+    await getRepository(NaverProject).delete({
+      naver_id,
+    });
+  }
+
+  public async deleteAllByProject(project_id: number): Promise<void> {
+    await getRepository(NaverProject).delete({
+      project_id,
+    });
+  }
+
   public async findAllByProject(project_id: number): Promise<NaverProject[]> {
     return getRepository(NaverProject).find({
       relations: ['naver'],

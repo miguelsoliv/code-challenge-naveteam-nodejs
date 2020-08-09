@@ -14,6 +14,10 @@ class PostgresNaversRepository implements INaversRepository {
     return naversRepository.save(naver);
   }
 
+  public async update(naver: Naver): Promise<Naver> {
+    return getRepository(Naver).save(naver);
+  }
+
   public async delete(id: number): Promise<void> {
     await getRepository(Naver).delete(id);
   }
