@@ -12,7 +12,7 @@ Você deve fazer a estrutura do banco de dados como achar necessário, mas lembr
 
 Deve ser implementada uma API utilizando [node.js](https://nodejs.org) no padrão [`RESTful`](https://becode.com.br/o-que-e-api-rest-e-restful/#:~:text=REST%20significa%20Representational%20State%20Transfer,abstra%C3%A7%C3%A3o%20da%20arquitetura%20da%20Web.) que possibilite as funcionalidades descritas abaixo:
 
-Junto a API, uma documentação de como testar o sistema é muito bem-vinda. Muitas vezes o README.md do projeto basta, porém também é interessante disponibizar documentação a partir de algum software para testar suas requests, recomendamos o [postman](https://www.postman.com/) ou [insomnia](https://insomnia.rest/download/);
+Junto a API, uma documentação de como testar o sistema é muito bem-vinda. Muitas vezes o README.md do projeto basta, porém também é interessante disponibilizar documentação a partir de algum software para testar suas requests, recomendamos o [postman](https://www.postman.com/) ou [insomnia](https://insomnia.rest/download/);
 
 O entregável do teste será o link de um repositório público no seu github pessoal contendo tudo que foi pedido acima.
 
