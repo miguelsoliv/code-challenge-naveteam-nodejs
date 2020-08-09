@@ -13,6 +13,10 @@ class PostgresNaversRepository implements INaversRepository {
     return naversRepository.save(naver);
   }
 
+  public async delete(id: number): Promise<void> {
+    await getRepository(Naver).delete(id);
+  }
+
   public async findById(id: number): Promise<Naver | undefined> {
     return getRepository(Naver).findOne(id);
   }

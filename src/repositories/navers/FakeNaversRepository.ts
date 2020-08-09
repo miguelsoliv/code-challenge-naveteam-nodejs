@@ -1,4 +1,5 @@
 import Naver from '../../models/Naver';
+import usersRoutes from '../../routes/users.routes';
 import ICreateNaverDTO from '../../useCases/CreateNaver/ICreateNaverDTO';
 import INaversRepository from './INaversRepository';
 
@@ -15,6 +16,10 @@ class FakeNaversRepository implements INaversRepository {
     this.counter += 1;
 
     return naver;
+  }
+
+  public async delete(id: number): Promise<void> {
+    this.navers.filter(naver => naver.id !== id);
   }
 
   public async findById(id: number): Promise<Naver | undefined> {

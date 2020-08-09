@@ -16,6 +16,10 @@ class PostgresProjectsRepository implements IProjectsRepository {
     return projectsRepository.save(project);
   }
 
+  public async delete(id: number): Promise<void> {
+    await getRepository(Project).delete(id);
+  }
+
   public async findById(id: number): Promise<Project | undefined> {
     return getRepository(Project).findOne(id);
   }

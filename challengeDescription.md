@@ -20,7 +20,7 @@ O entregável do teste será o link de um repositório público no seu github pe
 
 - Autenticação
 
-    - (Signup) Rota de cadastro 
+    - (Signup) Rota de cadastro
         - Deverá receber email e senha e criar novo registro no banco
 
     - (Login) Rota para poder logar no sistema
@@ -84,7 +84,7 @@ OBS: ```AS ROTAS A BAIXO NÃO PODEM SER ACESSADAS CASO O USUÁRIO NÃO POSSUA O 
               projects: [3]
           }
       ```
-    - O retorno é o objeto do usuário criado
+    - O retorno é o objeto do naver criado
 
 
   - (Update) Rota Para Atualização de Naver
@@ -182,7 +182,7 @@ Sugestão de bibliotecas para montar a api:
   - Mongoose
 
 Prefira o uso de um banco de dados relacional (postgresql, mysql, ...), sendo seu uso não obrigatório.<br>
-Para organizar a estrutura de seu projeto prefira o uso do padrão `MVC` sendo seu uso não obrigátório.<br>
+Para organizar a estrutura de seu projeto prefira o uso do padrão `MVC` sendo seu uso não obrigatório.<br>
 Será observado organização de código, legibilidade e melhor uso dos recursos da linguagem javascript.
 
 Se durante o processo de desenvolvimento não conseguiu fazer algo, explique qual o impedimento que encontrou e como tentou resolver em uma seção `Dificuldades` do seu README.md e nos submite até onde chegou :smile:
