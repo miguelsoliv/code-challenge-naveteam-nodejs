@@ -1,16 +1,21 @@
 import { Router } from 'express';
 
-import CreateProject from '../useCases/CreateProject';
-import DeleteProject from '../useCases/DeleteProject';
+import CreateProjectController from '../useCases/CreateProject';
+import DeleteProjectController from '../useCases/DeleteProject';
+import ShowProjectController from '../useCases/ShowProject';
 
 const projectsRoutes = Router();
 
 projectsRoutes.post('/', async (request, response) => {
-  await CreateProject.handle(request, response);
+  await CreateProjectController.handle(request, response);
+});
+
+projectsRoutes.get('/:id', async (request, response) => {
+  await ShowProjectController.handle(request, response);
 });
 
 projectsRoutes.delete('/:id', async (request, response) => {
-  await DeleteProject.handle(request, response);
+  await DeleteProjectController.handle(request, response);
 });
 
 export default projectsRoutes;

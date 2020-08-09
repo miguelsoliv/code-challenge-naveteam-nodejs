@@ -45,6 +45,24 @@ class PostgresNaversProjectsRepository implements INaversProjectsRepository {
 
     await naversProjectsRepository.save(naverProject);
   }
+
+  public async findAllByProject(project_id: number): Promise<NaverProject[]> {
+    return getRepository(NaverProject).find({
+      relations: ['naver'],
+      where: {
+        project_id,
+      },
+    });
+  }
+
+  public async findAllByNaver(naver_id: number): Promise<NaverProject[]> {
+    return getRepository(NaverProject).find({
+      relations: ['project'],
+      where: {
+        naver_id,
+      },
+    });
+  }
 }
 
 export default PostgresNaversProjectsRepository;
