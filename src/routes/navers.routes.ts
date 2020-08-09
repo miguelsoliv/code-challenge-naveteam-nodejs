@@ -2,9 +2,14 @@ import { Router } from 'express';
 
 import CreateNaverController from '../useCases/CreateNaver';
 import DeleteNaverController from '../useCases/DeleteNaver';
+import ListNaversController from '../useCases/ListNavers';
 import ShowNaverController from '../useCases/ShowNaver';
 
 const naversRoutes = Router();
+
+naversRoutes.get('/', async (request, response) => {
+  await ListNaversController.handle(request, response);
+});
 
 naversRoutes.post('/', async (request, response) => {
   await CreateNaverController.handle(request, response);

@@ -1,6 +1,6 @@
 import Naver from '../../models/Naver';
-import usersRoutes from '../../routes/users.routes';
 import ICreateNaverDTO from '../../useCases/CreateNaver/ICreateNaverDTO';
+import IListNaversDTO from '../../useCases/ListNavers/IListNaversDTO';
 import INaversRepository from './INaversRepository';
 
 class FakeNaversRepository implements INaversRepository {
@@ -24,6 +24,15 @@ class FakeNaversRepository implements INaversRepository {
 
   public async findById(id: number): Promise<Naver | undefined> {
     return this.navers.find(naver => naver.id === id);
+  }
+
+  public async findAllByUser({
+    user_id,
+    query,
+  }: IListNaversDTO): Promise<Naver[]> {
+    const whereObject = { ...query, user_id };
+
+    return this.navers.filter(naver => naver === whereObject);
   }
 }
 

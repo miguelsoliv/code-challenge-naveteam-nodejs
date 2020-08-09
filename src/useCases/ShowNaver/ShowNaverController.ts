@@ -7,7 +7,7 @@ import ShowNaverService from './ShowNaverService';
  * @description Handles single naver info
  *
  * @status {404} Not Found
- * @status {204} No Content
+ * @status {200} OK
  */
 class ShowNaverController {
   constructor(private showNaverService: ShowNaverService) {}

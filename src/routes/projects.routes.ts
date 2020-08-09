@@ -2,9 +2,14 @@ import { Router } from 'express';
 
 import CreateProjectController from '../useCases/CreateProject';
 import DeleteProjectController from '../useCases/DeleteProject';
+import ListProjectsController from '../useCases/ListProjects';
 import ShowProjectController from '../useCases/ShowProject';
 
 const projectsRoutes = Router();
+
+projectsRoutes.get('/', async (request, response) => {
+  await ListProjectsController.handle(request, response);
+});
 
 projectsRoutes.post('/', async (request, response) => {
   await CreateProjectController.handle(request, response);
