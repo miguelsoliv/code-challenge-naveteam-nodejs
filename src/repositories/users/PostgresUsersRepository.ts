@@ -6,9 +6,15 @@ import IUsersRepository from './IUsersRepository';
 
 class PostgresUsersRepository implements IUsersRepository {
   public async create(data: ICreateUserDTO): Promise<User> {
-    const user = getRepository(User).create(data);
+    const usersRepository = getRepository(User);
 
-    return getRepository(User).save(user);
+    const user = usersRepository.create(data);
+
+    return usersRepository.save(user);
+  }
+
+  public async findById(id: string): Promise<User | undefined> {
+    return getRepository(User).findOne(id);
   }
 
   public async findByEmail(email: string): Promise<User | undefined> {
