@@ -19,6 +19,10 @@ Baixe o arquivo `Insomnia_2020-08-09.json` para realizar a importação ou impor
 
 O projeto foi organizado com base no Package by Feature (pasta `useCases`) e com princípios do SOLID adaptados
 
+## Testes
+
+Para facilitar a execução dos testes foram criadas imitações dos repositórios de acesso ao Postgres (fake repositories). A cada execução dos testes o "banco" é zerado, pois os dados estão sendo salvos somente em memória.
+
 ## Endpoints
 
 <details>
