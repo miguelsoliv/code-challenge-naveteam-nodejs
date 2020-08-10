@@ -18,6 +18,12 @@ class FakeNaversRepository implements INaversRepository {
     return naver;
   }
 
+  public async update(naver: Naver): Promise<Naver> {
+    this.navers[naver.id] = naver;
+
+    return this.navers[naver.id];
+  }
+
   public async delete(id: number): Promise<void> {
     this.navers.filter(naver => naver.id !== id);
   }
