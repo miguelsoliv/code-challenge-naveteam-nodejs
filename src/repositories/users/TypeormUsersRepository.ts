@@ -4,7 +4,7 @@ import User from '../../models/User';
 import ICreateUserDTO from '../../useCases/CreateUser/ICreateUserDTO';
 import IUsersRepository from './IUsersRepository';
 
-class PostgresUsersRepository implements IUsersRepository {
+class TypeormUsersRepository implements IUsersRepository {
   public async create(data: ICreateUserDTO): Promise<User> {
     const usersRepository = getRepository(User);
 
@@ -26,4 +26,4 @@ class PostgresUsersRepository implements IUsersRepository {
   }
 }
 
-export default PostgresUsersRepository;
+export default TypeormUsersRepository;

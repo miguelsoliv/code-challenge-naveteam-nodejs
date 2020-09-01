@@ -5,7 +5,7 @@ import ICreateProjectDTO from '../../useCases/CreateProject/ICreateProjectDTO';
 import IListProjectsDTO from '../../useCases/ListProjects/IListProjectsDTO';
 import IProjectsRepository from './IProjectsRepository';
 
-class PostgresProjectsRepository implements IProjectsRepository {
+class TypeormProjectsRepository implements IProjectsRepository {
   public async create({ user_id, name }: ICreateProjectDTO): Promise<Project> {
     const projectsRepository = getRepository(Project);
 
@@ -48,4 +48,4 @@ class PostgresProjectsRepository implements IProjectsRepository {
   }
 }
 
-export default PostgresProjectsRepository;
+export default TypeormProjectsRepository;

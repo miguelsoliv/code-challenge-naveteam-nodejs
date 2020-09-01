@@ -1,15 +1,15 @@
-import PostgresNaversRepository from '../../repositories/navers/PostgresNaversRepository';
-import PostgresNaversProjectsRepository from '../../repositories/naversProjects/PostgresNaversProjectsRepository';
-import PostgresProjectsRepository from '../../repositories/projects/PostgresProjectsRepository';
-import PostgresUsersRepository from '../../repositories/users/PostgresUsersRepository';
+import TypeormNaversRepository from '../../repositories/navers/TypeormNaversRepository';
+import TypeormNaversProjectsRepository from '../../repositories/naversProjects/TypeormNaversProjectsRepository';
+import TypeormProjectsRepository from '../../repositories/projects/TypeormProjectsRepository';
+import TypeormUsersRepository from '../../repositories/users/TypeormUsersRepository';
 import CreateProjectController from './CreateProjectController';
 import CreateProjectService from './CreateProjectService';
 
 const createProjectService = new CreateProjectService(
-  new PostgresProjectsRepository(),
-  new PostgresUsersRepository(),
-  new PostgresNaversRepository(),
-  new PostgresNaversProjectsRepository()
+  new TypeormProjectsRepository(),
+  new TypeormUsersRepository(),
+  new TypeormNaversRepository(),
+  new TypeormNaversProjectsRepository()
 );
 
 const createProjectController = new CreateProjectController(

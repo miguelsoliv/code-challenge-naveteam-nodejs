@@ -1,10 +1,10 @@
 import BCryptHashProvider from '../../providers/HashProvider/BCryptHashProvider';
-import PostgresUsersRepository from '../../repositories/users/PostgresUsersRepository';
+import TypeormUsersRepository from '../../repositories/users/TypeormUsersRepository';
 import AuthenticateUserController from './AuthenticateUserController';
 import AuthenticateUserService from './AuthenticateUserService';
 
 const authenticateUserService = new AuthenticateUserService(
-  new PostgresUsersRepository(),
+  new TypeormUsersRepository(),
   new BCryptHashProvider()
 );
 

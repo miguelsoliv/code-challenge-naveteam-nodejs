@@ -5,7 +5,7 @@ import ICreateNaverDTO from '../../useCases/CreateNaver/ICreateNaverDTO';
 import IListNaversDTO from '../../useCases/ListNavers/IListNaversDTO';
 import INaversRepository from './INaversRepository';
 
-class PostgresNaversRepository implements INaversRepository {
+class TypeormNaversRepository implements INaversRepository {
   public async create(data: ICreateNaverDTO): Promise<Naver> {
     const naversRepository = getRepository(Naver);
 
@@ -55,4 +55,4 @@ class PostgresNaversRepository implements INaversRepository {
   }
 }
 
-export default PostgresNaversRepository;
+export default TypeormNaversRepository;

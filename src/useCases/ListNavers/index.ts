@@ -1,11 +1,11 @@
-import PostgresNaversRepository from '../../repositories/navers/PostgresNaversRepository';
-import PostgresUsersRepository from '../../repositories/users/PostgresUsersRepository';
+import TypeormNaversRepository from '../../repositories/navers/TypeormNaversRepository';
+import TypeormUsersRepository from '../../repositories/users/TypeormUsersRepository';
 import ListNaversController from './ListNaversController';
 import ListNaversService from './ListNaversService';
 
 const listNaversService = new ListNaversService(
-  new PostgresNaversRepository(),
-  new PostgresUsersRepository()
+  new TypeormNaversRepository(),
+  new TypeormUsersRepository()
 );
 
 const listNaversController = new ListNaversController(listNaversService);

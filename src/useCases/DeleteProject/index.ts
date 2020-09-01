@@ -1,11 +1,11 @@
-import PostgresProjectsRepository from '../../repositories/projects/PostgresProjectsRepository';
-import PostgresUsersRepository from '../../repositories/users/PostgresUsersRepository';
+import TypeormProjectsRepository from '../../repositories/projects/TypeormProjectsRepository';
+import TypeormUsersRepository from '../../repositories/users/TypeormUsersRepository';
 import DeleteProjectController from './DeleteProjectController';
 import DeleteProjectService from './DeleteProjectService';
 
 const deleteProjectService = new DeleteProjectService(
-  new PostgresProjectsRepository(),
-  new PostgresUsersRepository()
+  new TypeormProjectsRepository(),
+  new TypeormUsersRepository()
 );
 
 const deleteProjectController = new DeleteProjectController(

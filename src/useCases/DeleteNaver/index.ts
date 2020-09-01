@@ -1,11 +1,11 @@
-import PostgresNaversRepository from '../../repositories/navers/PostgresNaversRepository';
-import PostgresUsersRepository from '../../repositories/users/PostgresUsersRepository';
+import TypeormNaversRepository from '../../repositories/navers/TypeormNaversRepository';
+import TypeormUsersRepository from '../../repositories/users/TypeormUsersRepository';
 import DeleteNaverController from './DeleteNaverController';
 import DeleteNaverService from './DeleteNaverService';
 
 const deleteNaverService = new DeleteNaverService(
-  new PostgresNaversRepository(),
-  new PostgresUsersRepository()
+  new TypeormNaversRepository(),
+  new TypeormUsersRepository()
 );
 
 const deleteNaverController = new DeleteNaverController(deleteNaverService);

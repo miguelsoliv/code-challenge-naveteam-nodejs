@@ -5,7 +5,7 @@ import ICreateNaverProjectsDTO from '../../useCases/CreateNaverProject/ICreateNa
 import ICreateNaversProjectDTO from '../../useCases/CreateNaverProject/ICreateNaversProjectDTO';
 import INaversProjectsRepository from './INaversProjectsRepository';
 
-class PostgresNaversProjectsRepository implements INaversProjectsRepository {
+class TypeormNaversProjectsRepository implements INaversProjectsRepository {
   public async createMultipleNavers({
     naver_ids,
     project_id,
@@ -77,4 +77,4 @@ class PostgresNaversProjectsRepository implements INaversProjectsRepository {
   }
 }
 
-export default PostgresNaversProjectsRepository;
+export default TypeormNaversProjectsRepository;
